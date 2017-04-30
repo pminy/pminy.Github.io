@@ -1,0 +1,99 @@
+#include <iostream>
+using namespace std;
+
+class Add{
+   int a,b;
+public:
+   void setValue(int x,int y);
+   int calculate();
+};
+void Add::setValue(int x,int y){
+   a=x;
+   b=y;
+}
+int Add::calculate(){
+   return a+b;
+}
+
+class Sub{
+   int a,b;
+public:
+   void setValue(int x,int y);
+   int calculate();
+};
+void Sub::setValue(int x,int y){
+   a=x;
+   b=y;
+}
+int Sub::calculate(){
+   return a-b;
+}
+
+class Mul{
+   int a,b;
+public:
+   void setValue(int x,int y);
+   int calculate();
+};
+void Mul::setValue(int x,int y){
+   a=x;
+   b=y;
+}
+int Mul::calculate(){
+   return a*b;
+}
+
+class Div{
+   int a,b;
+public:
+   void setValue(int x,int y);
+   double calculate();
+};
+void Div::setValue(int x,int y){
+   a=x;
+   b=y;
+}
+double Div::calculate(){
+   return (double)a/b;
+}
+
+class Calculator{
+public: 
+   void run(); 
+};
+void Calculator::run(){
+   while(1){
+      cout << "두 정수와 연산자를 입력하세요: ";
+      int n1,n2;
+      char ch;
+      cin >> n1 >> n2 >> ch;
+
+      if(ch=='+'){
+         Add a;
+       a.setValue(n1,n2);
+         cout << a.calculate();
+      }
+      else if(ch=='-'){
+         Sub s;
+       s.setValue(n1,n2);
+         cout << s.calculate();
+      }
+      else if (ch == '*'){
+         Mul m;
+       m.setValue(n1,n2);
+         cout << m.calculate();
+      }
+      else if( ch == '/'){
+         Div d;
+       d.setValue(n1,n2);
+         cout << d.calculate();
+      }
+      else
+         cout << "연산자를 잘못 입력했습니다.";
+   }
+}
+
+int main(){
+   Calculator calc;
+   calc.run();
+}
